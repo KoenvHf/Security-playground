@@ -2,7 +2,7 @@
 $gebruikersnaam = $_POST['gebruikersnaam'];
 $wachtwoord = $_POST['wachtwoord'];
 
-$verbinding = new mysqli("localhost", "root", "", "security_playground");
+require 'db.php';
 
 $stmt = $verbinding->prepare("SELECT * FROM gebruikers WHERE gebruikersnaam = ? AND wachtwoord = ?");
 $stmt->bind_param("ss", $gebruikersnaam, $wachtwoord);
